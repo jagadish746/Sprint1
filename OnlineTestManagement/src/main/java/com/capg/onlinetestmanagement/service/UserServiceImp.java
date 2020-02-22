@@ -81,24 +81,40 @@ public class UserServiceImp implements IUserService {
 
 	}
 
-	public static boolean isValiduserPassword(String userPassword) {
-		boolean flag = false;
-		String string = userPassword.toString();
-		if (string.matches("[A-Z][a-z]{6}[!@#$%^&*()-=+?:;|.`~]")) {
-			flag = true;
+	public static boolean isValiduserPassword(String password)
+    {
+            boolean valid = true;
+            if (password.length() < 8)
+            {
+                    valid = false;
+            }
+            String upperCaseChars = "(.*[A-Z].*)";
+            if (!password.matches(upperCaseChars ))
+            {
+                    valid = false;
+            }
+            String lowerCaseChars = "(.*[a-z].*)";
+            if (!password.matches(lowerCaseChars ))
+            {
+                    valid = false;
+            }
+            String numbers = "(.*[0-9].*)";
+            if (!password.matches(numbers ))
+            {
+                    valid = false;
+            }
+            String specialChars = "(.*[,~,!,@,#,$,%,^,&,*,(,),-,_,=,+,[,{,],},|,;,:,<,>,/,?].*$)";
+            if (!password.matches(specialChars ))
+            {
+                    valid = false;
+            }
+            if (valid)
+            {
+                    valid = true;
+            }
+            return valid;
+    }
 
-		}
-		if (flag == false) {
-			try {
-				throw new Exception("invalid password");
-			} catch (Exception e) {
-				System.err.println(e);
-				System.out.println("Please enter valid password");
-			}
-		}
-
-		return flag;
-	}
 
 	public static boolean uservalidation(User u) {
 		boolean flag = false;

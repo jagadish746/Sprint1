@@ -13,8 +13,8 @@ public class Main {
 		while (true) {
 			System.out.println("Welcome to Online Test");
 			System.out.println("1.Register User");
-			System.out.println("2.Delete User");
-			System.out.println("3.view Users");
+			System.out.println("2.Remove User");
+			System.out.println("3.show Users");
 			System.out.println("4.Exit");
 			int choice = scanner.nextInt();
 			switch (choice) {
@@ -64,8 +64,10 @@ public class Main {
 				service.showUsers();
 
 				break;
-
-			}
-		}
+			case 4:
+				System.exit(0);
+				break;
+	}
+	}
 	}
 }

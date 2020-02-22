@@ -1,3 +1,4 @@
+
 package com.capg.onlinetestmanagement.dao;
 
 import java.util.HashMap;
@@ -14,7 +15,7 @@ public class UserDAOImp implements IUserDAO {
 
 		map.put(user.getUserId(), user);
 
-		System.out.println(map);
+		System.out.println(map);    
 
 		flag = true;
 
@@ -39,7 +40,6 @@ public class UserDAOImp implements IUserDAO {
 	public void showUsers() {
 		Set<Long> set = map.keySet();
 		System.out.println("Registered Users ");
-
 		System.out.println(map);
 	}
 
